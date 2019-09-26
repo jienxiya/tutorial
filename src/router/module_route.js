@@ -2,10 +2,10 @@
 let beforeEnter = (to, from, next) => 
 {
     // AUTH.currentPath = to.path
-    if(to.tokenRequired == true){
-        token = session.getItem("token")
+    // if(to.tokenRequired == true){
+    //     token = session.getItem("token")
         
-    }
+    // }
     next()
 }
 var devRoutes = [];

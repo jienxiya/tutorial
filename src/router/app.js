@@ -17,7 +17,7 @@ export default {
     }, {
         path: '/sidebar',
         name: 'sidebar',
-        component: resolve => require(['modules/basic/Register.vue'], resolve),
+        component: resolve => require(['components/frame/sidebar.vue'], resolve),
         meta: {
             tokenRequired: true
         }

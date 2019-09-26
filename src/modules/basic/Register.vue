@@ -58,8 +58,6 @@ export default {
     onSubmit(evt) {
       evt.preventDefault();
       alert("Username: " + this.form.username);
-    //   console.log("Username: " + this.form.username);
-    //   console.log("Password: " + this.form.password);
     },
     onReset(evt) {
       evt.preventDefault();
