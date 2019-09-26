@@ -15,9 +15,9 @@ export default {
         }
 
     }, {
-        path: '/sidebar',
-        name: 'sidebar',
-        component: resolve => require(['components/frame/sidebar.vue'], resolve),
+        path: '/dashboard',
+        name: 'dashboard',
+        component: resolve => require(['modules/basic/Dashboard.vue'], resolve),
         meta: {
             tokenRequired: true
         }

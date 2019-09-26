@@ -7,7 +7,7 @@
         </b-col>
         <b-col id="top" cols = "8">
 
-        <b-form @submit="onSubmit" @reset="onReset">
+        <b-form @submit="onSubmit">
           <b-form-group
             id="input-group-1"
             label="Username"
@@ -30,7 +30,7 @@
             <b-form-input id="input-3" v-model="form.confirmPassword" required placeholder="Confirm Password" type="password"></b-form-input>
           </b-form-group>
 
-          <b-button id="login" type="submit" block variant="primary">Sign Up</b-button><br>
+          <b-button v-on:click="redirect('/login')" id="login" type="submit" block variant="primary">Sign Up</b-button><br>
         </b-form>
         
         </b-col>
@@ -43,9 +43,11 @@
 </template>
 
 <script>
+import AUTH from 'services/auth'
 export default {
   data() {
     return {
+      auth: AUTH,
       form: {
         username: "",
         password: "",
@@ -57,13 +59,9 @@ export default {
   methods: {
     onSubmit(evt) {
       evt.preventDefault();
-      alert("Username: " + this.form.username);
-    },
-    onReset(evt) {
-      evt.preventDefault();
-      this.form.username = "";
-      this.form.password = "";
-      this.form.confirmPassword = "";
+      sessionStorage.setItem("pass", this.form.password)
+      AUTH.register(this.form.username, this.form.password)
+      // alert(sessionStorage.getItem("pass"))
     }
   }
 };

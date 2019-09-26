@@ -26,7 +26,7 @@
             </b-form-group>
 
             <b-button id="login" type="submit" block variant="primary">Log in</b-button>
-            <br />
+            <br/>
             <b-button id="reset" type="reset" block variant="danger">Reset</b-button>
           </b-form>
         </b-col>
@@ -37,6 +37,8 @@
 </template>
 
 <script>
+import AUTH from 'services/auth'
+import ROUTER from 'router'
 export default {
   data() {
     return {
@@ -48,17 +50,16 @@ export default {
     };
   },
   methods: {
-    onSubmit(evt) {
+    onSubmit (evt) {
       evt.preventDefault();
-      alert("Username: " + this.form.username);
-      //   console.log("Username: " + this.form.username);
-      //   console.log("Password: " + this.form.password);
+      console.log(AUTH.login(this.form.username, this.form.password))
+        // beforeEnter;
     },
     onReset(evt) {
       evt.preventDefault();
       this.form.username = "";
       this.form.password = "";
-    }
+    },
   }
 };
 </script>

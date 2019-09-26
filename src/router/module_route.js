@@ -1,12 +1,17 @@
-// import AUTH from '../services/auth'
+// import AUTH from 'services/auth'
 let beforeEnter = (to, from, next) => 
 {
     // AUTH.currentPath = to.path
-    // if(to.tokenRequired == true){
-    //     token = session.getItem("token")
-        
-    // }
-    next()
+    if(to.tokenRequired == true){
+        // token = sessionStorage.getItem("pass")
+        if(sessionStorage.getItem("pass") != null){
+            next()
+        }else{
+            next({path: '/login'})
+        }
+    }else{
+        next()
+    }
 }
 var devRoutes = [];
 let app = require('router/app.js')

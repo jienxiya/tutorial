@@ -1,11 +1,5 @@
 <template>
-  <!-- <sidebar-menu :menu="menu" /> -->
-  <sidebar-menu @toggle-collapse="onToggleCollapse" @item-click="onItemClick">
-    <div slot="header">header</div>
-    <div slot="footer">footer</div>
-    <span slot="toggle-icon"></span>
-    <span slot="dropdown-icon">dropdown-icon</span>
-  </sidebar-menu>
+  <sidebar-menu :menu="menu" />
 </template>
  
  <script>
@@ -19,27 +13,38 @@
                         hiddenOnCollapse: true
                     },
                     {
-                        href: '/',
+                        href: '/dashboard',
                         title: 'Dashboard',
                         icon: 'fa fa-user'
                     },
                     {
-                        href: '/charts',
-                        title: 'Charts',
+                        href: '#',
+                        title: 'Personal Information',
+                        icon: 'fa fa-user'
+                    },
+                    {
+                        href: '#',
+                        title: 'Add Course & Subjects',
                         icon: 'fa fa-chart-area',
                         child: [
                             {
                                 href: '/charts/sublink',
-                                title: 'Sub Link'
+                                title: 'Edit'
                             }
                         ]
+                    },
+                    {
+                        href: '#',
+                        title: 'Log Out',
+                        icon: 'fa fa-chart-area',
+                        // logout();
                     }
                 ]
             }
         },
         methods:{
-            onToggleCollapse(collapsed) {},
-            onItemClick(event, item) {}
+            // onToggleCollapse(collapsed) {},
+            // onItemClick(event, item) {}
         }
     }
 </script> 

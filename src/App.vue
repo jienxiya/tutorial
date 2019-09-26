@@ -2,7 +2,13 @@
   <div id="app">
    <Header></Header>
    <AppBody></AppBody>
-   <SidebarMenu></SidebarMenu>
+   <SidebarMenu >
+      <div slot="header">header</div>
+      <div slot="footer">footer</div>
+      <span class="toggle-icon">toggle-icon</span>
+      <span class="dropdown-icon">dropdown-icon</span>
+   </SidebarMenu>
+    <dashBoard v-show="false"> </dashBoard>
   </div>
 </template>
 
@@ -10,12 +16,15 @@
 import Header from 'components/frame/Header.vue'
 import AppBody from 'components/frame/Body.vue'
 import  SidebarMenu from 'components/frame/sidebar.vue'
+import  dashBoard from 'modules/basic/Dashboard.vue'
+
 export default {
   name: 'app',
   components: {
     Header,
     AppBody,
-    SidebarMenu
+    SidebarMenu,
+    dashBoard
   }
 }
 </script>
