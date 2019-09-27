@@ -42,6 +42,7 @@ import ROUTER from 'router'
 export default {
   data() {
     return {
+      auth: AUTH,
       form: {
         username: "",
         password: ""
@@ -52,7 +53,8 @@ export default {
   methods: {
     onSubmit (evt) {
       evt.preventDefault();
-      console.log(AUTH.login(this.form.username, this.form.password))
+      AUTH.login(this.form.username, this.form.password)
+      ROUTER.push('/dashboard')
         // beforeEnter;
     },
     onReset(evt) {

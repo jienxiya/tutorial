@@ -30,7 +30,7 @@
             <b-form-input id="input-3" v-model="form.confirmPassword" required placeholder="Confirm Password" type="password"></b-form-input>
           </b-form-group>
 
-          <b-button v-on:click="redirect('/login')" id="login" type="submit" block variant="primary">Sign Up</b-button><br>
+          <b-button id="login" type="submit" block variant="primary">Sign Up</b-button><br>
         </b-form>
         
         </b-col>
@@ -44,6 +44,7 @@
 
 <script>
 import AUTH from 'services/auth'
+import ROUTER from 'router'
 export default {
   data() {
     return {
@@ -61,7 +62,7 @@ export default {
       evt.preventDefault();
       sessionStorage.setItem("pass", this.form.password)
       AUTH.register(this.form.username, this.form.password)
-      // alert(sessionStorage.getItem("pass"))
+      ROUTER.push('/login')
     }
   }
 };
