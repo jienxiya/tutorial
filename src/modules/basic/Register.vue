@@ -44,7 +44,7 @@
 
 <script>
 import AUTH from 'services/auth'
-import ROUTER from 'router'
+// import ROUTER from 'router'
 export default {
   data() {
     return {
@@ -62,7 +62,7 @@ export default {
       evt.preventDefault();
       sessionStorage.setItem("pass", this.form.password)
       AUTH.register(this.form.username, this.form.password)
-      ROUTER.push('/login')
+      // ROUTER.push('/login')
     }
   }
 };

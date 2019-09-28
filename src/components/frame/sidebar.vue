@@ -3,9 +3,11 @@
 </template>
  
  <script>
+ import AUTH from 'services/auth'
     export default {
         data() {
             return {
+                auth: AUTH,
                 menu: [
                     {
                         header: true,
@@ -34,10 +36,11 @@
                         ]
                     },
                     {
-                        href: '#',
+                        href: '/login',
                         title: 'Log Out',
                         icon: 'fa fa-chart-area',
-                        // logout();
+                        // AUTH.logout()
+                    
                     }
                 ]
             }

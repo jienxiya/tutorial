@@ -5,7 +5,7 @@
         <b-col></b-col>
         <b-col id="top" cols="8">
           <b-form @submit="onSubmit" @reset="onReset">
-            <b-form-group id="input-group-1" label="Username" label-for="input-1">
+            <b-input-group id="input-group-1" label="Username" label-for="input-1" >
               <b-form-input
                 id="input-1"
                 v-model="form.username"
@@ -13,7 +13,7 @@
                 required
                 placeholder="Username"
               ></b-form-input>
-            </b-form-group>
+            </b-input-group>
 
             <b-form-group id="input-group-2" label="Password" label-for="input-2">
               <b-form-input
@@ -38,7 +38,7 @@
 
 <script>
 import AUTH from 'services/auth'
-import ROUTER from 'router'
+// import ROUTER from 'router'
 export default {
   data() {
     return {
@@ -54,8 +54,6 @@ export default {
     onSubmit (evt) {
       evt.preventDefault();
       AUTH.login(this.form.username, this.form.password)
-      ROUTER.push('/dashboard')
-        // beforeEnter;
     },
     onReset(evt) {
       evt.preventDefault();

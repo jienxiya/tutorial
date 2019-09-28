@@ -2,21 +2,21 @@
   <div id="app">
    <Header></Header>
    <AppBody></AppBody>
-   <!-- <SidebarMenu v-show="false">
+   <SidebarMenu v-show="false" >
       <div slot="header">header</div>
       <div slot="footer">footer</div>
       <span  class="vsm--toggle-btn" :class="{'vsm--toggle-btn_slot' : $slots['toggle-icon']}"
       @click="onToggleClick">toggle-icon</span>
       <span class="dropdown-icon">dropdown-icon</span>
-   </SidebarMenu> -->
-    <dashBoard v-show="false"> </dashBoard>
+   </SidebarMenu>
+    <dashBoard  v-show="false"> </dashBoard>
   </div>
 </template>
 
 <script>
 import Header from 'components/frame/Header.vue'
 import AppBody from 'components/frame/Body.vue'
-// import  SidebarMenu from 'components/frame/sidebar.vue'
+import  SidebarMenu from 'components/frame/sidebar.vue'
 import  dashBoard from 'modules/basic/Dashboard.vue'
 
 export default {
@@ -24,9 +24,9 @@ export default {
   components: {
     Header,
     AppBody,
-    // SidebarMenu,
+    SidebarMenu,
     dashBoard
-  }
+  },
 }
 </script>
 

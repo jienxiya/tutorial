@@ -2,8 +2,8 @@ import AUTH from 'services/auth'
 let beforeEnter = (to, from, next) => 
 {
     AUTH.currentPath = to.path
-    if(to.tokenRequired == true){
-        // token = sessionStorage.getItem("pass")
+    if(to.meta.tokenRequired == true){
+        // console.log(token = sessionStorage.getItem("pass"))
         if(sessionStorage.getItem("pass") != null){
             next()
         }else{
