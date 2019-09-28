@@ -3,8 +3,7 @@ let beforeEnter = (to, from, next) =>
 {
     AUTH.currentPath = to.path
     if(to.meta.tokenRequired == true){
-        // console.log(token = sessionStorage.getItem("pass"))
-        if(sessionStorage.getItem("pass") != null){
+        if(sessionStorage.getItem("Password") != null){
             next()
         }else{
             next({path: '/login'})

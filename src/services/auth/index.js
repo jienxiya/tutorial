@@ -6,6 +6,9 @@ export default {
     setUser(user){
         this.user = user
     },
+    getUser(user){
+        return this.user = user;
+    },
     register(username, password){
         this.registeredUser.push({
             username: username,
@@ -16,8 +19,8 @@ export default {
     login(username,password){
         for(let i = 0; i < this.registeredUser.length; i++){
             if(this.registeredUser[i].username === username && this.registeredUser[i].password === password){
-                // return this.registeredUser[i]
                 ROUTER.push('/dashboard')
+                return this.registeredUser[i]           
             }else{
                 alert("Email or Password is incorrect!")
             }
@@ -25,7 +28,10 @@ export default {
         return null
     },
     logout(){
-        this.user = null
+        this.registeredUser = null
         ROUTER.push('/login')
-    }
+    },
+
+    
+
 }

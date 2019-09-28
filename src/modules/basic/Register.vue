@@ -8,18 +8,12 @@
         <b-col id="top" cols = "8">
 
         <b-form @submit="onSubmit">
-          <b-form-group
-            id="input-group-1"
-            label="Username"
-            label-for="input-1"
-          >
-            <b-form-input
-              id="input-1"
-              v-model="form.username"
-              type="email"
-              required
-              placeholder="Username"
-            ></b-form-input>
+          <b-form-group id="input-group-1" label="Username" label-for="input-0">
+            <b-form-input id="input-0" v-model="form.username" type="text" required placeholder="Username"></b-form-input>
+          </b-form-group>
+
+          <b-form-group id="input-group-1" label="Email" label-for="input-1">
+            <b-form-input id="input-1" v-model="form.email" type="email" required placeholder="Email"></b-form-input>
           </b-form-group>
 
           <b-form-group id="input-group-2" label="Password" label-for="input-2">
@@ -51,6 +45,7 @@ export default {
       auth: AUTH,
       form: {
         username: "",
+        email: "",
         password: "",
         confirmPassword: "",
       },
@@ -60,8 +55,10 @@ export default {
   methods: {
     onSubmit(evt) {
       evt.preventDefault();
-      sessionStorage.setItem("pass", this.form.password)
-      AUTH.register(this.form.username, this.form.password)
+      sessionStorage.setItem("Password", this.form.password)
+      sessionStorage.setItem("Username", this.form.username)
+      sessionStorage.setItem("Email", this.form.email)
+      AUTH.register(this.form.email, this.form.password)
       // ROUTER.push('/login')
     }
   }

@@ -4,30 +4,16 @@
       <b-row id="row">
         <b-col></b-col>
         <b-col id="top" cols="8">
-          <b-form @submit="onSubmit" @reset="onReset">
-            <b-input-group id="input-group-1" label="Username" label-for="input-1" >
-              <b-form-input
-                id="input-1"
-                v-model="form.username"
-                type="email"
-                required
-                placeholder="Username"
-              ></b-form-input>
+          <b-form @submit="onSubmit">
+            <b-input-group id="input-group-1" label="Email" label-for="input-1" >
+              <b-form-input id="input-1" v-model="form.email" type="email" required placeholder="Email"></b-form-input>
             </b-input-group>
 
             <b-form-group id="input-group-2" label="Password" label-for="input-2">
-              <b-form-input
-                id="input-2"
-                v-model="form.password"
-                required
-                placeholder="Password"
-                type="password"
-              ></b-form-input>
+              <b-form-input id="input-2" v-model="form.password" required placeholder="Password" type="password"></b-form-input>
             </b-form-group>
 
             <b-button id="login" type="submit" block variant="primary">Log in</b-button>
-            <br/>
-            <b-button id="reset" type="reset" block variant="danger">Reset</b-button>
           </b-form>
         </b-col>
         <b-col></b-col>
@@ -44,7 +30,7 @@ export default {
     return {
       auth: AUTH,
       form: {
-        username: "",
+        email: "",
         password: ""
       },
       show: true
@@ -53,13 +39,8 @@ export default {
   methods: {
     onSubmit (evt) {
       evt.preventDefault();
-      AUTH.login(this.form.username, this.form.password)
-    },
-    onReset(evt) {
-      evt.preventDefault();
-      this.form.username = "";
-      this.form.password = "";
-    },
+      AUTH.login(this.form.email, this.form.password)
+    }
   }
 };
 </script>
