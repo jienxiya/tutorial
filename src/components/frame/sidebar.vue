@@ -20,20 +20,20 @@
                         icon: 'fa fa-user'
                     },
                     {
-                        href: '#',
+                        href: '/personalinformation',
                         title: 'Personal Information',
                         icon: 'fa fa-user'
                     },
                     {
-                        href: '#',
+                        href: '/courses',
                         title: 'Add Course & Subjects',
                         icon: 'fa fa-chart-area',
-                        child: [
-                            {
-                                href: '/charts/sublink',
-                                title: 'Edit'
-                            }
-                        ]
+                        // child: [
+                        //     {
+                        //         href: '/charts/sublink',
+                        //         title: 'Edit'
+                        //     }
+                        // ]
                     },
                     {
                         href: '/login',

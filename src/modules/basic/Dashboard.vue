@@ -16,21 +16,20 @@
     </center>
   </div>
 </template>
-<style scoped>
+<style lang='scss' scoped>
+@import "~assets/colors.scss";
 #card {
   margin-top: 2em;
 }
 #userIcon {
-  width: 15%;
-  height: auto;
+  width: $userIconWidth !important;
+  height: $userIconHeight !important;
 }
 </style>
 
 <script>
-import AUTH from "services/auth";
 export default {
   name: "card",
-  auth: AUTH,
   data() {
     return {
       Uname: sessionStorage.getItem("Username")

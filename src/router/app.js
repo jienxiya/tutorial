@@ -21,6 +21,20 @@ export default {
         meta: {
             tokenRequired: true
         }
+    }, {
+        path: '/personalinformation',
+        name: 'personalinformation',
+        component: resolve => require(['modules/basic/PersonalInfo.vue'], resolve),
+        meta: {
+            tokenRequired: true
+        }
+    }, {
+        path: '/courses',
+        name: 'courses',
+        component: resolve => require(['modules/basic/course.vue'], resolve),
+        meta: {
+            tokenRequired: true
+        }
     }
 
     ]

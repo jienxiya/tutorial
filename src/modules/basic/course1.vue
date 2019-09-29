@@ -1,7 +1,7 @@
 <template>
   <div id="card">
-    <center><br><br>
-      <h1>DASHBOARD</h1>
+    <center>
+      <h1>COURSES</h1>
     </center>
     <hr>
     <div>
@@ -9,7 +9,7 @@
         <b-card
           bg-variant="primary"
           text-variant="white"
-          header="Add Course & Subject"
+          header="Web Development III"
           class="text-center"
           id="b-card"
         >
@@ -19,7 +19,7 @@
         <b-card
           bg-variant="secondary"
           text-variant="white"
-          header="Edit Personal Info"
+          header="Java II"
           class="text-center"
           id="b-card"
         >
@@ -32,7 +32,7 @@
         <b-card
           bg-variant="info"
           text-variant="white"
-          header="Info"
+          header="Big Data & NoSQL"
           class="text-center"
           id="b-card"
         >
@@ -42,13 +42,35 @@
         <b-card
           bg-variant="warning"
           text-variant="white"
-          header="Warning"
+          header="SD Elective II"
           class="text-center"
           id="b-card"
         >
           <b-card-text>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</b-card-text>
         </b-card>
       </b-card-group>
+    </div>
+    <br>
+    <br>
+    <div>
+      <b-button block variant="outline-primary" v-b-toggle.collapse-2 class="m-1">Add Course</b-button>
+      <b-collapse visible id="collapse-2">
+        <b-card>
+          <b-form @submit="onAdd">
+            <b-form-group id="input-group-4" label="Course" label-for="input-4">
+              <b-form-input id="input-4" v-model="form.course" placeholder="Course"></b-form-input>
+            </b-form-group>
+            <br>
+            <b-form-group id="input-group-5" label="Year" label-for="input-5">
+              <b-form-input id="input-5" v-model="form.year" placeholder="Year"></b-form-input>
+            </b-form-group>
+            <br>
+            <center>
+              <b-button type="submit" variant="outline-primary">Add</b-button>
+            </center>
+          </b-form>
+        </b-card>
+      </b-collapse>
     </div>
   </div>
 </template>
@@ -62,14 +84,24 @@
   box-shadow: 5px 10px 8px #888888;
 }
 </style>
-
 <script>
-import sideBar from 'components/frame/sidebar.vue'
+import AUTH from "services/auth";
 export default {
-  name: 'card',
-  component: {
-      sideBar
+  data() {
+    return {
+      form: {
+        course: "",
+        year: ""
+      }
+    };
   },
-  methods: {}
+  methods: {
+    onAdd(e) {
+      e.preventDefault();
+      AUTH.addCourse(this.form.course, this.form.year);
+    }
+  }
 };
 </script>
+
+

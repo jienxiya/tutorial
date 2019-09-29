@@ -3,6 +3,7 @@ import ROUTER from 'router';
 export default {
     user: null,
     registeredUser: [],
+    courses:[],
     setUser(user){
         this.user = user
     },
@@ -14,6 +15,8 @@ export default {
             username: username,
             password: password,
         })
+        // var p = JSON.parse(JSON.stringify(this.registeredUser))
+        // console.log(p)
         ROUTER.push('/login')
     },
     login(username,password){
@@ -31,6 +34,14 @@ export default {
         this.registeredUser = null
         ROUTER.push('/login')
     },
+    addCourse(course, year){
+        this.courses.push({
+            course: course,
+            year: year,
+        });
+        var p = JSON.parse(JSON.stringify(this.courses))
+        console.log(p)
+    }
 
     
 
