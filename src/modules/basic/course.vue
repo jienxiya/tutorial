@@ -3,12 +3,15 @@
     <center>
       <h1>COURSES</h1>
     </center>
+    <!-- <b-card class="mt-3" header="Form Data Result">
+      <pre class="m-0">{{ form }}</pre>
+    </b-card> -->
     <b-table slot="footer" striped hover :items="items"></b-table>
     <br>
     <br>
     <div>
       <b-button block variant="outline-primary" v-b-toggle.collapse-2 class="m-1">Add Course</b-button>
-      <b-collapse visible id="collapse-2">
+      <b-collapse  id="collapse-2">
         <b-card>
           <b-form @submit="onAdd">
             <b-form-group id="input-group-4" label="Course" label-for="input-4">
@@ -59,7 +62,7 @@ export default {
       e.preventDefault();
       AUTH.addCourse(this.form.course, this.form.year);
       this.items.push(this.form.course,this.form.year);
-    //   (this.form.course = ""), (this.form.year = "");
+      (this.form.course = ""), (this.form.year = "");
     }
   }
 };

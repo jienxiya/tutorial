@@ -3,7 +3,9 @@
     <br>
     <br>
     <!-- <br> -->
-    <b-button variant="outline-primary" id="editBtn">Edit Profile</b-button>
+    <b-form-group @submit="onSubmit">
+      <b-button type="submit" variant="outline-primary" id="editBtn">Edit Profile</b-button>
+    </b-form-group>
     <div class="mt-3">
       <b-card no-body class="overflow-hidden" style="max-width: 540px;">
         <b-row no-gutters>
@@ -35,7 +37,7 @@ b-card-text {
 .mt-3 {
   margin: 30%;
   box-shadow: 5px 10px 18px #888888;
-//   background-color: $bckg_color !important;
+  //   background-color: $bckg_color !important;
 }
 #editBtn {
   margin-left: 80%;
@@ -43,13 +45,23 @@ b-card-text {
 </style>
 
 <script>
+// import ROUTER from 'router'
+import AUTH from 'services/auth'
 export default {
   data() {
     return {
+      auth: AUTH,
       Uname: sessionStorage.getItem("Username"),
       Email: sessionStorage.getItem("Email"),
       Pass: sessionStorage.getItem("Password")
     };
+  },
+  methods:{
+    onSubmit(e){
+      e.preventDefault()
+      AUTH.editProfile()
+      // ROUTER.push('/edit')
+    }
   }
 };
 </script>

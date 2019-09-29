@@ -31,7 +31,7 @@ export default {
         return null
     },
     logout(){
-        this.registeredUser = null
+        this.user = null
         ROUTER.push('/login')
     },
     addCourse(course, year){
@@ -41,8 +41,15 @@ export default {
         });
         var p = JSON.parse(JSON.stringify(this.courses))
         console.log(p)
+    },
+    // getCourse(){
+    //     for(let i = 0; i<this.courses.length-1; i++){
+             
+    //         return this.courses[i]
+    //     }
+       
+    // }  
+    editProfile(){
+        ROUTER.push('/edit')
     }
-
-    
-
 }

@@ -35,6 +35,13 @@ export default {
         meta: {
             tokenRequired: true
         }
+    }, {
+        path: '/edit',
+        name: 'edit',
+        component: resolve => require(['modules/basic/EditProfile.vue'], resolve),
+        meta: {
+            tokenRequired: true
+        }
     }
 
     ]

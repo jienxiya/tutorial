@@ -6,7 +6,7 @@
         <b-col id="top" cols="8">
           <b-form @submit="onSubmit">
             <b-input-group id="input-group-1" label="Email" label-for="input-1" >
-              <b-form-input id="input-1" v-model="form.email" type="email" required placeholder="Email"></b-form-input>
+              <b-form-input  class='fas fa-user' id="input-1" v-model="form.email" type="email" required placeholder="Email"></b-form-input>
             </b-input-group>
 
             <b-form-group id="input-group-2" label="Password" label-for="input-2">

@@ -27,7 +27,7 @@
                     {
                         href: '/courses',
                         title: 'Add Course & Subjects',
-                        icon: 'fa fa-chart-area',
+                        icon: 'fa fa-book',
                         // child: [
                         //     {
                         //         href: '/charts/sublink',
@@ -38,7 +38,7 @@
                     {
                         href: '/login',
                         title: 'Log Out',
-                        icon: 'fa fa-chart-area',
+                        icon: 'fa fa-user',
                         // AUTH.logout()
                     
                     }
