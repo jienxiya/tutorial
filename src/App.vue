@@ -1,11 +1,11 @@
 <template>
   <div id="app">
     <Header
-      v-show="$route.name==='register' || $route.name==='login' || $route.path === '/' ? true : false"
+      v-show="$route.name==='register' || $route.name==='login' || $route.name === 'home' ? true : false"
     ></Header>
     <AppBody></AppBody>
     <SidebarMenu
-      v-show="$route.path==='/dashboard' || $route.path === '/personalinformation' || $route.path === '/courses' ? true : false"
+      v-show="$route.name==='dashboard' || $route.name === 'personalinformation' || $route.name === 'courses' || $route.name === 'edit' ? true : false"
     >
       <div slot="header">header</div>
       <div slot="footer">footer</div>

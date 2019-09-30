@@ -7,13 +7,12 @@ export default {
     setUser(user) {
         this.user = user
     },
-    getUser(user) {
-        return this.user = user;
-    },
-    register(username, password) {
+    
+    register(username, email, password) {
         this.registeredUser.push({
             username: username,
-            password: password,
+           email: email,
+            password: password
         })
 
         // var p = JSON.parse(JSON.stringify(this.registeredUser))
@@ -21,9 +20,9 @@ export default {
         // console.log(p)
         ROUTER.push('/login')
     },
-    login(username, password) {
+    login(username,email, password) {
         for (let i = 0; i < this.registeredUser.length; i++) {
-            if (this.registeredUser[i].username === username && this.registeredUser[i].password === password) {
+            if (this.registeredUser[i].email === email || this.registeredUser[i].username === username && this.registeredUser[i].password === password) {
                 ROUTER.push('/dashboard')
                 return this.registeredUser[i]
             } else {
@@ -41,19 +40,17 @@ export default {
             course: course,
             year: year,
         });
-            var p = JSON.parse(JSON.stringify(this.courses))
-            console.log(p)
+            // var p = JSON.parse(JSON.stringify(this.courses))
+            // console.log(p)
     },
-    getCourse(kurso) {
-        for (let i = 0; i < this.courses.length - 1; i++) {
-            // var p = JSON.parse(JSON.stringify(this.courses[i]))
-            console.log(kurso)
-            return kurso = i
-            ;
+    save(username,email, password){
+        for (let i = 0; i < this.registeredUser.length; i++) {
+            this.registeredUser[i].username = username,
+            this.registeredUser[i].email = email,
+            this.registeredUser[i].password = password
         }
-
-    },
-    editProfile() {
-        ROUTER.push('/edit')
+        alert('Update Succesfully!')
+        ROUTER.push('/personalInformation')
     }
+    
 }

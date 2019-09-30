@@ -2,10 +2,6 @@
   <div>
     <br>
     <br>
-    <!-- <br> -->
-    <b-form-group @click="onSubmit">
-      <b-button type="submit" variant="outline-primary" id="editBtn">Edit Profile</b-button>
-    </b-form-group>
     <div class="mt-3">
       <b-card no-body class="overflow-hidden" style="max-width: 540px;">
         <b-row no-gutters>
@@ -39,15 +35,12 @@ b-card-text {
   box-shadow: 5px 10px 18px #888888;
   //   background-color: $bckg_color !important;
 }
-#editBtn {
-  margin-left: 80%;
-}
+
 </style>
 
 <script>
 // import ROUTER from 'router'
 import AUTH from 'services/auth'
-import ROUTER from 'router'
 export default {
   data() {
     return {
@@ -57,13 +50,6 @@ export default {
       Pass: sessionStorage.getItem("Password")
     };
   },
-  methods:{
-    onSubmit(e){
-      e.preventDefault()
-      // AUTH.editProfile()
-      ROUTER.push('/edit')
-    }
-  }
 };
 </script>
 

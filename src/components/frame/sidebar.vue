@@ -23,24 +23,24 @@
                     {
                         href: '/personalinformation',
                         title: 'Personal Information',
-                        icon: 'fa fa-user'
+                        icon: 'fa fa-user',
+                        child: [
+                            {
+                                href: '/edit',
+                                title: 'Edit Profile'
+                            }
+                        ]
                     },
                     {
                         href: '/courses',
                         title: 'Add Course & Subjects',
                         icon: 'fa fa-book',
-                        // child: [
-                        //     {
-                        //         href: '/charts/sublink',
-                        //         title: 'Edit'
-                        //     }
-                        // ]
                     },
                     {
                         href: '/login',
                         title: 'Log Out',
                         icon: 'fa fa-user',
-                        // AUTH.logout()
+                        
                     
                     }
                 ]

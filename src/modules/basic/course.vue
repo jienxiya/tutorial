@@ -1,97 +1,104 @@
 <template>
-<div>
-  <div class="jumbotron">
-    <h1>Subjects</h1>
+  <div id="card">
+    <center>
+      <div>
+        <h1 id="kurses">Courses:</h1>
+      </div>
+      <hr>
+      <b-card>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Course</th>
+              <th scope="col">Year</th>
+              <th scope="col">Schedule</th>
+              <th scope="col">Room</th>
+              <th scope="col">Teacher</th>              
+            </tr>
+          </thead>
+          <tbody v-for="(item, index) in this.rows" :key="index">
+            <tr>
+              <td>{{ item.course }}</td>
+              <td>{{ item.year }}</td>
+              <td>{{ item.schedule }}</td>
+              <td>{{ item.room }}</td>
+              <td>{{ item.teacher }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </b-card>
+      <hr>
+      <div id="porm">
+        <b-button block variant="outline-primary" v-b-toggle.collapse-2 class="m-1">Add Course</b-button>
+        <b-collapse id="collapse-2">
+          <b-card>
+            <b-form-group>
+              <label id="course">Course:</label>
+              <b-form-input required v-model="info.course" id="subject"></b-form-input>
+              <br>
+              <label id="year">Year:</label>
+              <b-form-input required v-model="info.year" id="year"></b-form-input>
+              <br>
+              <label id="sched">Schedule:</label>
+              <b-form-input required v-model="info.schedule" id="time"></b-form-input>
+              <br>
+              <label id="room">Room:</label>
+              <b-form-input required v-model="info.room" id="room"></b-form-input>
+              <br>
+              <label id="teacher">Teacher:</label>
+              <b-form-input required v-model="info.teacher" id="teacher"></b-form-input>
+              <br>
+              <b-button variant="primary" @click="addItem">Add Subject</b-button>
+            </b-form-group>
+          </b-card>
+        </b-collapse>
+      </div>
+    </center>
   </div>
-<center>
-<b-card text-align id="card" img-top tag="article" style="max-width: 30rem;" class="mb-2">
-<b-form-group label-size="lg" label-for="input-lg">
-<label id="Subject">Subject:</label>
-<b-form-input v-model="infos.subject" id="subject" size="lg"></b-form-input>
-<label id="teacher">Teacher:</label>
-<br>
-<b-form-input v-model="infos.teacher" id="teacher" size="lg"></b-form-input>
-<br>
-<label id="time">Time:</label>
-<b-form-input v-model="infos.time" id="time" size="lg"></b-form-input>
-<label id="time">Day:</label>
-<b-form-input v-model="infos.day" id="day" size="lg"></b-form-input>
-<label id="room">Room:</label>
-<b-form-input v-model="infos.room" id="room" size="lg"></b-form-input>
-<br>
-<b-button variant="primary" @click="addItem"
->Add Subject</b-button>
-</b-form-group>
-</b-card>
-<!-- <center> -->
-<b-card text-align id="card1" img-top tag="article" style="max-width: 40rem;" class="mb-2">
-<table class="table">
-<thead>
-<tr >
-<th scope="col">SUBJECT</th>
-<th scope="col">TEACHER</th>
-<th scope="col">TIME</th>
-<th scope="col">DAY</th>
-<th scope="col">ROOM</th>
-</tr>
-</thead>
-<tbody v-for="(item, index) in this.rows" :key="index">
-<tr >
-<td>{{ item.subject }}</td>
-<td>{{ item.teacher }}</td>
-<td>{{ item.time }}</td>
-<td>{{ item.day }}</td>
-<td>{{ item.room }}</td>
-
-</tr>
-</tbody>
-</table>
-</b-card>
-</center>
-</div>
 </template>
 
 
 <style>
 #card {
-margin-top: 20px;
+  max-width: 50%;
+  margin-left: 25%;
+  margin-top: 2em;
 }
-.jumbotron {
-padding: 20px;
-text-align: center;
+#kurses {
+  text-align: center;
 }
 </style>
 
 <script>
 export default {
-data() {
-return {
-rows:[],
-infos: {
-subject: "",
-teacher: "",
-time: "",
-day: "",
-room: "",
-}
-}
-},
-methods: {
-addItem() {
-var object = {
-subject: this.infos.subject,
-teacher: this.infos.teacher,
-time: this.infos.time,
-day: this.infos.day,
-room: this.infos.room
-};
-this.rows.push( object )
-this.infos.subject = ""
-this.infos.teacher = ""
-this.infos.time = ""
-this.infos.day= ""
-this.infos.room = ""
-}
-}
+  data() {
+    return {
+      rows: [],
+      info: {
+        course: "",
+        year: "",
+        schedule: "",
+        room: "",
+        teacher: ""
+      }
+    };
+  },
+  methods: {
+    addItem() {
+      var object = {
+        course: this.info.course,
+        year: this.info.year,
+        schedule: this.info.schedule,
+        room: this.info.room,
+        teacher: this.info.teacher,
+      };
+      this.rows.push(object);
+      this.info.course = "";
+      this.info.year= "",
+      this.info.schedule = "";
+      this.info.room = "";
+      this.info.teacher = "";
+    }
+  }
 };
 </script>  

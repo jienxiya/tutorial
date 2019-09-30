@@ -1,71 +1,78 @@
 <template>
-    <div>
-        <b-card id="card" bg-variant="light">
-    <b-form-group
-      label-cols-lg="3"
-      label="Personal Information"
-      label-size="lg"
-      label-class="font-weight-bold pt-0"
-      class="mb-0"
-    >
-      <b-form-group
-        label-cols-sm="3"
-        label="Username:"
-        label-align-sm="right"
-        label-for="nested-street"
-      >
-        <b-form-input id="nested-street" v-model="form.Uname"></b-form-input>
-      </b-form-group>
+  <div id="container">
+    <center>
+      <div>
+        <h1>Update Information</h1>
+      </div>
+      <hr>
+      <div class="card">
+        <div class="card-header">Edit Information</div>
+        <div class="card-body">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <b-form-input
+              required
+              type="text"
+              class="form-control"
+              id="username"
+              v-model="username"
+            ></b-form-input>
+          </div>
+          <div class="form-group">
+            <label for="email" class="bmd-label-floating">Email</label>
+            <b-form-input required type="email" class="form-control" id="email" v-model="email"></b-form-input>
+          </div>
+          <div class="form-group">
+            <label for="pwd" class="bmd-label-floating">Password</label>
+            <b-form-input
+              required
+              type="password"
+              class="form-control"
+              id="passw"
+              v-model="password"
+            ></b-form-input>
+          </div>
 
-      <b-form-group
-        label-cols-sm="3"
-        label="Email:"
-        label-align-sm="right"
-        label-for="nested-city"
-      >
-        <b-form-input id="nested-city" v-model="form.Email"></b-form-input>
-      </b-form-group>
-
-      <b-form-group
-        label-cols-sm="3"
-        label="Current Password:"
-        label-align-sm="right"
-        label-for="nested-state"
-      >
-        <b-form-input id="nested-state" v-model="form.CurrentPass"></b-form-input>
-      </b-form-group>
-
-      <b-form-group
-        label-cols-sm="3"
-        label="New Password:"
-        label-align-sm="right"
-        label-for="nested-country"
-      >
-        <b-form-input id="nested-country" v-model="form.ChangePass"></b-form-input>
-      </b-form-group>
-
-      
-    </b-form-group>
-  </b-card>
-    </div>
+          <button
+            type="button"
+            class="btn btn-outline-primary login-btn"
+            id="btnLogin"
+            @click="save"
+          >Save changes</button>
+        </div>
+      </div>
+    </center>
+  </div>
 </template>
-<style scoped>
-  #card{
-    margin: 10%;
-  }
-</style>
+
 <script>
+import AUTH from "services/auth";
 export default {
-  data(){
-    return{
-      form: {
-        Uname: "",
-        Email: "",
-        CurrentPass: "",
-        ChangePass: ""
-      }
+  data() {
+    return {
+      auth: AUTH,
+      username: "",
+      email: "",
+      password: ""
+    };
+  },
+  methods: {
+    save: function(e) {
+      e.preventDefault();
+      sessionStorage.setItem("Username", this.username),
+        sessionStorage.setItem("Email", this.email),
+        sessionStorage.setItem("Password", this.password),
+        AUTH.save(this.username, this.email, this.password);
+      (this.username = ""), (this.email = ""), (this.password = "");
     }
   }
-}
+};
 </script>
 
+<style scoped>
+#container {
+  max-width: 50%;
+  margin-left: 25%;
+  margin-top: 2em;
+}
+</style>
