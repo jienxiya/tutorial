@@ -1,71 +1,97 @@
 <template>
-  <div id="card">
-    <center>
-      <h1>COURSES</h1>
-    </center>
-    <!-- <b-card class="mt-3" header="Form Data Result">
-      <pre class="m-0">{{ form }}</pre>
-    </b-card> -->
-    <b-table slot="footer" striped hover :items="items"></b-table>
-    <br>
-    <br>
-    <div>
-      <b-button block variant="outline-primary" v-b-toggle.collapse-2 class="m-1">Add Course</b-button>
-      <b-collapse  id="collapse-2">
-        <b-card>
-          <b-form @submit="onAdd">
-            <b-form-group id="input-group-4" label="Course" label-for="input-4">
-              <b-form-input id="input-4" v-model="form.course" placeholder="Course"></b-form-input>
-            </b-form-group>
-            <br>
-            <b-form-group id="input-group-5" label="Year" label-for="input-5">
-              <b-form-input id="input-5" v-model="form.year" placeholder="Year"></b-form-input>
-            </b-form-group>
-            <br>
-            <center>
-              <b-button type="submit" variant="outline-primary">Add</b-button>
-            </center>
-          </b-form>
-        </b-card>
-      </b-collapse>
-    </div>
+<div>
+  <div class="jumbotron">
+    <h1>Subjects</h1>
   </div>
+<center>
+<b-card text-align id="card" img-top tag="article" style="max-width: 30rem;" class="mb-2">
+<b-form-group label-size="lg" label-for="input-lg">
+<label id="Subject">Subject:</label>
+<b-form-input v-model="infos.subject" id="subject" size="lg"></b-form-input>
+<label id="teacher">Teacher:</label>
+<br>
+<b-form-input v-model="infos.teacher" id="teacher" size="lg"></b-form-input>
+<br>
+<label id="time">Time:</label>
+<b-form-input v-model="infos.time" id="time" size="lg"></b-form-input>
+<label id="time">Day:</label>
+<b-form-input v-model="infos.day" id="day" size="lg"></b-form-input>
+<label id="room">Room:</label>
+<b-form-input v-model="infos.room" id="room" size="lg"></b-form-input>
+<br>
+<b-button variant="primary" @click="addItem"
+>Add Subject</b-button>
+</b-form-group>
+</b-card>
+<!-- <center> -->
+<b-card text-align id="card1" img-top tag="article" style="max-width: 40rem;" class="mb-2">
+<table class="table">
+<thead>
+<tr >
+<th scope="col">SUBJECT</th>
+<th scope="col">TEACHER</th>
+<th scope="col">TIME</th>
+<th scope="col">DAY</th>
+<th scope="col">ROOM</th>
+</tr>
+</thead>
+<tbody v-for="(item, index) in this.rows" :key="index">
+<tr >
+<td>{{ item.subject }}</td>
+<td>{{ item.teacher }}</td>
+<td>{{ item.time }}</td>
+<td>{{ item.day }}</td>
+<td>{{ item.room }}</td>
+
+</tr>
+</tbody>
+</table>
+</b-card>
+</center>
+</div>
 </template>
-<style scoped>
+
+
+<style>
 #card {
-  max-width: 50%;
-  margin-left: 25%;
-  margin-top: 2em;
+margin-top: 20px;
 }
-/* #b-card {
-  box-shadow: 5px 10px 8px #888888;
-} */
+.jumbotron {
+padding: 20px;
+text-align: center;
+}
 </style>
+
 <script>
-import AUTH from "services/auth";
 export default {
-  data() {
-    return {
-      form: {
-        course: "",
-        year: ""
-      },
-      items: [
-        { course: "Web Development", year: "III" },
-        { course: "Java", year: "II" },
-        { course: "Big Data & NoSQL", year: "II" }
-      ]
-    };
-  },
-  methods: {
-    onAdd(e) {
-      e.preventDefault();
-      AUTH.addCourse(this.form.course, this.form.year);
-      this.items.push(this.form.course,this.form.year);
-      (this.form.course = ""), (this.form.year = "");
-    }
-  }
+data() {
+return {
+rows:[],
+infos: {
+subject: "",
+teacher: "",
+time: "",
+day: "",
+room: "",
+}
+}
+},
+methods: {
+addItem() {
+var object = {
+subject: this.infos.subject,
+teacher: this.infos.teacher,
+time: this.infos.time,
+day: this.infos.day,
+room: this.infos.room
 };
-</script>
-
-
+this.rows.push( object )
+this.infos.subject = ""
+this.infos.teacher = ""
+this.infos.time = ""
+this.infos.day= ""
+this.infos.room = ""
+}
+}
+};
+</script>  

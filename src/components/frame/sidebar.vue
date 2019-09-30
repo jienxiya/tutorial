@@ -1,5 +1,5 @@
 <template>
-  <sidebar-menu :menu="menu" />
+  <sidebar-menu :src="require('assets/user.png')" :menu="menu" />
 </template>
  
  <script>
@@ -12,7 +12,8 @@
                     {
                         header: true,
                         title: 'Main Navigation',
-                        hiddenOnCollapse: true
+                        hiddenOnCollapse: true,
+                    
                     },
                     {
                         href: '/dashboard',

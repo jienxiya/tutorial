@@ -3,7 +3,7 @@
     <br>
     <br>
     <!-- <br> -->
-    <b-form-group @submit="onSubmit">
+    <b-form-group @click="onSubmit">
       <b-button type="submit" variant="outline-primary" id="editBtn">Edit Profile</b-button>
     </b-form-group>
     <div class="mt-3">
@@ -47,6 +47,7 @@ b-card-text {
 <script>
 // import ROUTER from 'router'
 import AUTH from 'services/auth'
+import ROUTER from 'router'
 export default {
   data() {
     return {
@@ -59,8 +60,8 @@ export default {
   methods:{
     onSubmit(e){
       e.preventDefault()
-      AUTH.editProfile()
-      // ROUTER.push('/edit')
+      // AUTH.editProfile()
+      ROUTER.push('/edit')
     }
   }
 };
