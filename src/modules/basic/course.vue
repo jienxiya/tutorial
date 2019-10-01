@@ -70,9 +70,11 @@
 </style>
 
 <script>
+import AUTH from 'services/auth'
 export default {
   data() {
     return {
+      auth: AUTH,
       rows: [],
       info: {
         course: "",
@@ -92,12 +94,14 @@ export default {
         room: this.info.room,
         teacher: this.info.teacher,
       };
+      AUTH.addCourse(this.info.course,this.info.year,this.info.schedule,this.info.room,this.info.teacher)
       this.rows.push(object);
       this.info.course = "";
       this.info.year= "",
       this.info.schedule = "";
       this.info.room = "";
       this.info.teacher = "";
+      
     }
   }
 };

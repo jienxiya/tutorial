@@ -1,5 +1,5 @@
 <template>
-  <sidebar-menu :src="require('assets/user.png')" :menu="menu" />
+  <sidebar-menu :menu="menu" />
 </template>
  
  <script>
@@ -37,11 +37,9 @@
                         icon: 'fa fa-book',
                     },
                     {
-                        href: '/login',
+                        href: '/confirmLogout',
                         title: 'Log Out',
                         icon: 'fa fa-user',
-                        
-                    
                     }
                 ]
             }
