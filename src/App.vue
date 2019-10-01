@@ -1,10 +1,9 @@
 <template>
   <div id="app">
-    <Header
-      v-show="$route.name==='register' || $route.name==='login' || $route.name === 'home' ? true : false"
-    ></Header>
+    <Header></Header>
+    <!-- v-show="$route.name==='register' || $route.name==='login' || $route.name === 'home' ? true : false"? -->
     <AppBody></AppBody>
-    <SidebarMenu
+    <!-- <SidebarMenu
       v-show="$route.name==='dashboard' || $route.name === 'personalinformation' || $route.name === 'courses' || $route.name === 'edit' ? true : false"
     >
       <div slot="header">header</div>
@@ -14,28 +13,19 @@
         :class="{'vsm--toggle-btn_slot' : $slots['toggle-icon']}"
       >toggle-icon</span>
       <span class="dropdown-icon">dropdown-icon</span>
-    </SidebarMenu>
+    </SidebarMenu> -->
   </div>
 </template>
 
 <script>
-import AUTH from "services/auth";
 import Header from "components/frame/Header.vue";
 import AppBody from "components/frame/Body.vue";
-import SidebarMenu from "components/frame/sidebar.vue";
-
 export default {
   name: "app",
-  auth: AUTH,
-  data() {
-    return {};
-  },
   components: {
     Header,
-    AppBody,
-    SidebarMenu
+    AppBody
   },
-  methods: {}
 };
 </script>
 
@@ -47,3 +37,5 @@ export default {
   color: #2c3e50;
 }
 </style>
+
+ 

@@ -12,8 +12,8 @@
             <b-form-group id="input-group-2" label="Password" label-for="input-2">
               <b-form-input id="input-2" v-model="form.password" required placeholder="Password" type="password"></b-form-input>
             </b-form-group>
-
-            <b-button id="login" type="submit" block variant="primary">Log in</b-button>
+<!-- @click="login" -->
+            <b-button id="login"  type="submit" block variant="primary">Log in</b-button>
           </b-form>
         </b-col>
         <b-col></b-col>
@@ -24,6 +24,7 @@
 
 <script>
 import AUTH from 'services/auth'
+import $ from 'jquery'
 // import ROUTER from 'router'
 export default {
   data() {
@@ -40,6 +41,19 @@ export default {
     onSubmit (evt) {
       evt.preventDefault();
       AUTH.login(this.form.email, this.form.password)
+      // AUTH.setUser(this.form.email)
+    },
+    login(){
+      let link= 'http://localhost:3000/user'
+      $.ajax({
+        url: link,
+        method: 'POST',
+        headers: {
+          'Access-Control-Allow-Origin':'*'
+        }
+      }).then(response =>{
+        alert(response.username)
+      })
     }
   }
 };

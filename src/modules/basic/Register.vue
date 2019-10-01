@@ -59,6 +59,7 @@ export default {
       sessionStorage.setItem("Username", this.form.username)
       sessionStorage.setItem("Email", this.form.email)
       AUTH.register(this.form.email, this.form.password)
+      
       // ROUTER.push('/login')
     }
   }

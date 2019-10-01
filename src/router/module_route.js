@@ -1,14 +1,16 @@
 import AUTH from 'services/auth'
-let beforeEnter = (to, from, next) => 
-{
+
+// let token = sessionStorage.getItem("Username")
+let beforeEnter = (to, from, next) => {
     AUTH.currentPath = to.path
-    if(to.tokenRequired == true){
-        if(sessionStorage.getItem("Password") != null){
+    if (to.tokenRequired == true) {
+        let token = sessionStorage.getItem("Username")
+        if (token != null) {
             next()
-        }else{
-            next({path: '/login'})
+        } else {
+            next({ path: '/login' })
         }
-    }else{
+    } else {
         next()
     }
 }
