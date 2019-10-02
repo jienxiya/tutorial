@@ -8,6 +8,8 @@ import router from 'router'
 import VueSidebarMenu from 'vue-sidebar-menu'
 import 'vue-sidebar-menu/dist/vue-sidebar-menu.css'
 Vue.use(VueSidebarMenu)
+// import Slider from '@jeremyhamm/vue-slider'
+// Vue.use(Slider)
 
 Vue.config.productionTip = false
 Vue.use(BootstrapVue)

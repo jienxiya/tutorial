@@ -1,6 +1,12 @@
 <template>
-  <sidebar-menu :menu="menu" />
+  <sidebar-menu :menu="menu"/>
 </template>
+<style scoped>
+.v-sidebar-menu{
+    height: 93%;
+    margin-top: 56px;
+}
+</style>
  
  <script>
  import AUTH from 'services/auth'

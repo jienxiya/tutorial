@@ -73,6 +73,6 @@ export default {
 #container {
   max-width: 50%;
   margin-left: 25%;
-  margin-top: 2em;
+  margin-top: 10%;
 }
 </style>

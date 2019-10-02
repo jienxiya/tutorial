@@ -1,19 +1,7 @@
 <template>
   <div id="app">
     <Header></Header>
-    <!-- v-show="$route.name==='register' || $route.name==='login' || $route.name === 'home' ? true : false"? -->
     <AppBody></AppBody>
-    <!-- <SidebarMenu
-      v-show="$route.name==='dashboard' || $route.name === 'personalinformation' || $route.name === 'courses' || $route.name === 'edit' ? true : false"
-    >
-      <div slot="header">header</div>
-      <div slot="footer">footer</div>
-      <span
-        class="vsm--toggle-btn"
-        :class="{'vsm--toggle-btn_slot' : $slots['toggle-icon']}"
-      >toggle-icon</span>
-      <span class="dropdown-icon">dropdown-icon</span>
-    </SidebarMenu> -->
   </div>
 </template>
 

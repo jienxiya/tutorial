@@ -1,7 +1,7 @@
 <template>
   <div>
     <br>
-    <br>
+    <br><br>
     <div class="mt-3">
       <b-card no-body class="overflow-hidden" style="max-width: 540px;">
         <b-row no-gutters>

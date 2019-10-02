@@ -20,7 +20,7 @@ export default {
     },
     login(username, email, password) {
         for (let i = 0; i < this.registeredUser.length; i++) {
-            if (this.registeredUser[i].email === email || this.registeredUser[i].username === username && this.registeredUser[i].password === password) {
+            if (this.registeredUser[i].email === email && this.registeredUser[i].username === username && this.registeredUser[i].password === password) {
                 ROUTER.push('/dashboard')
                 this.setUser(email)
                 return this.registeredUser[i]
@@ -33,6 +33,8 @@ export default {
     logout() {
         this.user = null
         sessionStorage.setItem("Username", null)
+        sessionStorage.setItem("Email", null)
+        sessionStorage.setItem("Password", null)
         ROUTER.push('/login')
     },
     addCourse(course, year, schedule, room, teacher) {

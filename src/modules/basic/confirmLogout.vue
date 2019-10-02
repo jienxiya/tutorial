@@ -10,20 +10,20 @@
 #card {
   max-width: 50%;
   margin-left: 25%;
-  margin-top: 2em;
+  margin-top: 10%;
 }
 </style>
 
 <script>
 import AUTH from "services/auth";
-import ROUTER from "router";
+// import ROUTER from "router";
 export default {
   auth: AUTH,
   methods: {
     logOut(e) {
       e.preventDefault();
       AUTH.logout();
-      ROUTER.push("/login");
+      // ROUTER.push("/login");
     }
   }
 };

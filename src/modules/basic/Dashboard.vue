@@ -19,7 +19,7 @@
 <style lang='scss' scoped>
 @import "~assets/colors.scss";
 #card {
-  margin-top: 2em;
+  margin-top: 10%;
 }
 #userIcon {
   width: $userIconWidth !important;

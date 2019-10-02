@@ -5,7 +5,7 @@
         <h1 id="kurses">Courses:</h1>
       </div>
       <hr>
-      <b-card>
+      <b-card id="b-card" >
         <table class="table">
           <thead>
             <tr>
@@ -62,7 +62,14 @@
 #card {
   max-width: 50%;
   margin-left: 25%;
-  margin-top: 2em;
+  margin-top: 10%;
+}
+.table,#b-card{
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+  overflow-x:auto;
 }
 #kurses {
   text-align: center;
