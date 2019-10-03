@@ -49,10 +49,6 @@
                     }
                 ]
             }
-        },
-        methods:{
-            // onToggleCollapse(collapsed) {},
-            // onItemClick(event, item) {}
         }
     }
 </script> 

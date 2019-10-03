@@ -24,7 +24,7 @@
             <b-form-input id="input-3" v-model="form.confirmPassword" required placeholder="Confirm Password" type="password"></b-form-input>
           </b-form-group>
 
-          <b-button id="login" type="submit" block variant="primary">Sign Up</b-button><br>
+          <b-button id="login" block variant="primary" @click="register">Sign Up</b-button><br>
         </b-form>
         
         </b-col>
@@ -38,6 +38,7 @@
 
 <script>
 import AUTH from 'services/auth'
+import $ from 'jquery'
 // import ROUTER from 'router'
 export default {
   data() {
@@ -61,6 +62,18 @@ export default {
       AUTH.register(this.form.email, this.form.password)
       
       // ROUTER.push('/login')
+    },
+    register(){
+      let link= `http://localhost:3000/db/create/${this.form.username}/${this.form.email}/${this.form.password}`
+      $.ajax({
+        url: link,
+        method: 'GET',
+        headers: {
+          'Access-Control-Allow-Origin':'*'
+        }
+      }).then(response =>{
+        alert(response.username)
+      })
     }
   }
 };
