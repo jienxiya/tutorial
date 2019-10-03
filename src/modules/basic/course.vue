@@ -13,7 +13,8 @@
               <th scope="col">Year</th>
               <th scope="col">Schedule</th>
               <th scope="col">Room</th>
-              <th scope="col">Teacher</th>              
+              <th scope="col">Teacher</th> 
+              <th scope="col">Action</th>            
             </tr>
           </thead>
           <tbody v-for="(item, index) in this.rows" :key="index">
@@ -23,6 +24,7 @@
               <td>{{ item.schedule }}</td>
               <td>{{ item.room }}</td>
               <td>{{ item.teacher }}</td>
+              <td><b-button variant="outline-primary" @click="remove(item.course)">Remove</b-button></td>
             </tr>
           </tbody>
         </table>
@@ -53,6 +55,7 @@
           </b-card>
         </b-collapse>
       </div>
+      
     </center>
   </div>
 </template>
@@ -109,6 +112,10 @@ export default {
       this.info.room = "";
       this.info.teacher = "";
       
+    },
+    remove(course){
+      this.rows.splice(0,1)
+      console.log(course)
     }
   }
 };

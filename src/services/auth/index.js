@@ -8,9 +8,8 @@ export default {
         this.user = user
     },
 
-    register(username, email, password) {
+    register(email, password) {
         this.registeredUser.push({
-            username: username,
             email: email,
             password: password
         })
@@ -18,9 +17,9 @@ export default {
         // console.log(p)
         ROUTER.push('/login')
     },
-    login(username, email, password) {
+    login(email, password) {
         for (let i = 0; i < this.registeredUser.length; i++) {
-            if (this.registeredUser[i].email === email && this.registeredUser[i].username === username && this.registeredUser[i].password === password) {
+            if (this.registeredUser[i].email === email && this.registeredUser[i].password === password) {
                 ROUTER.push('/dashboard')
                 this.setUser(email)
                 return this.registeredUser[i]
@@ -32,9 +31,9 @@ export default {
     },
     logout() {
         this.user = null
-        sessionStorage.setItem("Username", null)
-        sessionStorage.setItem("Email", null)
-        sessionStorage.setItem("Password", null)
+        // sessionStorage.setItem("Username", null)
+        // sessionStorage.setItem("Email", null)
+        // sessionStorage.setItem("Password", null)
         ROUTER.push('/login')
     },
     addCourse(course, year, schedule, room, teacher) {
@@ -58,6 +57,9 @@ export default {
         // var p = JSON.parse(JSON.stringify(this.registeredUser))
         // console.log(p)
         ROUTER.push('/personalInformation')
-    }
+    },
+    // removeCourse(course, year, schedule, room, teacher){
+
+    // }
 
 }
