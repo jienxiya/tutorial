@@ -14,10 +14,6 @@
   </div>
 </template>
 <style scoped>
-.v-sidebar-menu{
-  /* margin-top: 56px;
-  margin-bottom: 56px; */
-}
 </style>
 
 <script>

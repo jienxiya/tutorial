@@ -14,7 +14,7 @@
               <th scope="col">Schedule</th>
               <th scope="col">Room</th>
               <th scope="col">Teacher</th> 
-              <th scope="col">Action</th>            
+              <!-- <th scope="col">Action</th>             -->
             </tr>
           </thead>
           <tbody v-for="(item, index) in this.rows" :key="index">
@@ -24,7 +24,7 @@
               <td>{{ item.schedule }}</td>
               <td>{{ item.room }}</td>
               <td>{{ item.teacher }}</td>
-              <td><b-button variant="outline-primary" @click="remove(item.course)">Remove</b-button></td>
+              <!-- <td><b-button variant="outline-primary" @click="remove()">Remove</b-button></td> -->
             </tr>
           </tbody>
         </table>
@@ -55,7 +55,20 @@
           </b-card>
         </b-collapse>
       </div>
-      
+      <div>
+        <b-button block variant="outline-primary" v-b-toggle.collapse-2 class="m-1">Remove Course</b-button>
+        <b-collapse id="collapse-2">
+          <b-card>
+            <b-form-group>
+              <label id="course">Course:</label>
+              <b-form-input required v-model="delInfo.delCourse" id="subject"></b-form-input>
+              <br>
+              <br>
+              <b-button variant="primary" @click="remove">Remove</b-button>
+            </b-form-group>
+          </b-card>
+        </b-collapse>
+      </div>    
     </center>
   </div>
 </template>
@@ -86,6 +99,9 @@ export default {
     return {
       auth: AUTH,
       rows: [],
+      delInfo: {
+        delCourse: "",
+      },
       info: {
         course: "",
         year: "",
@@ -113,9 +129,13 @@ export default {
       this.info.teacher = "";
       
     },
-    remove(course){
-      this.rows.splice(0,1)
-      console.log(course)
+    remove(){
+      for(let i=0;i<this.rows.length;i++){
+        if(this.rows[i].course === this.delInfo.delCourse){
+          this.rows.splice(this.rows.indexOf((this.rows[i]),1))
+        }
+
+      }
     }
   }
 };

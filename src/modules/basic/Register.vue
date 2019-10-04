@@ -24,7 +24,7 @@
             <b-form-input id="input-3" v-model="form.confirmPassword" required placeholder="Confirm Password" type="password"></b-form-input>
           </b-form-group>
 
-          <b-button id="login" block variant="primary" @click="register">Sign Up</b-button><br>
+          <b-button id="login" block variant="primary" type="submit">Sign Up</b-button><br>
         </b-form>
         
         </b-col>
