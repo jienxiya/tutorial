@@ -5,7 +5,8 @@
         <h1 id="kurses">Courses:</h1>
       </div>
       <hr>
-      <b-card id="b-card" >
+
+      <b-card id="b-card">
         <table class="table">
           <thead>
             <tr>
@@ -13,7 +14,7 @@
               <th scope="col">Year</th>
               <th scope="col">Schedule</th>
               <th scope="col">Room</th>
-              <th scope="col">Teacher</th> 
+              <th scope="col">Teacher</th>
               <!-- <th scope="col">Action</th>             -->
             </tr>
           </thead>
@@ -68,7 +69,7 @@
             </b-form-group>
           </b-card>
         </b-collapse>
-      </div>    
+      </div>
     </center>
   </div>
 </template>
@@ -80,12 +81,13 @@
   margin-left: 25%;
   margin-top: 10%;
 }
-.table,#b-card{
+.table,
+#b-card {
   border-collapse: collapse;
   border-spacing: 0;
   width: 100%;
   border: 1px solid #ddd;
-  overflow-x:auto;
+  overflow-x: auto;
 }
 #kurses {
   text-align: center;
@@ -93,14 +95,14 @@
 </style>
 
 <script>
-import AUTH from 'services/auth'
+import AUTH from "services/auth";
 export default {
   data() {
     return {
       auth: AUTH,
       rows: [],
       delInfo: {
-        delCourse: "",
+        delCourse: ""
       },
       info: {
         course: "",
@@ -118,23 +120,26 @@ export default {
         year: this.info.year,
         schedule: this.info.schedule,
         room: this.info.room,
-        teacher: this.info.teacher,
+        teacher: this.info.teacher
       };
-      AUTH.addCourse(this.info.course,this.info.year,this.info.schedule,this.info.room,this.info.teacher)
+      AUTH.addCourse(
+        this.info.course,
+        this.info.year,
+        this.info.schedule,
+        this.info.room,
+        this.info.teacher
+      );
       this.rows.push(object);
       this.info.course = "";
-      this.info.year= "",
-      this.info.schedule = "";
+      (this.info.year = ""), (this.info.schedule = "");
       this.info.room = "";
       this.info.teacher = "";
-      
     },
-    remove(){
-      for(let i=0;i<this.rows.length;i++){
-        if(this.rows[i].course === this.delInfo.delCourse){
-          this.rows.splice(this.rows.indexOf((this.rows[i]),1))
+    remove() {
+      for (let i = 0; i < this.rows.length; i++) {
+        if (this.rows[i].course === this.delInfo.delCourse) {
+          this.rows.splice(this.rows.indexOf(this.rows[i], 1));
         }
-
       }
     }
   }

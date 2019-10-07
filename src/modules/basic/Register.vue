@@ -60,9 +60,9 @@ export default {
       sessionStorage.setItem("Username", this.form.username)
       sessionStorage.setItem("Email", this.form.email)
       AUTH.register(this.form.email, this.form.password)
-      // let link= `http://localhost:3000/db/create/${this.form.username}/${this.form.email}/${this.form.password}`
+      let link= `http://localhost:3000/db/create/${this.form.username}/${this.form.email}/${this.form.password}`
       // let link= `http://localhost:3000/db/update/${this.form.username}/${this.form.email}/${this.form.password}`
-      let link= `http://localhost:3000/db/delete`
+      // let link= `http://localhost:3000/db/delete`
       $.ajax({
         url: link,
         method: 'GET',

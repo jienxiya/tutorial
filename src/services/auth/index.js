@@ -31,9 +31,6 @@ export default {
     },
     logout() {
         this.user = null
-        // sessionStorage.setItem("Username", null)
-        // sessionStorage.setItem("Email", null)
-        // sessionStorage.setItem("Password", null)
         ROUTER.push('/login')
     },
     addCourse(course, year, schedule, room, teacher) {
