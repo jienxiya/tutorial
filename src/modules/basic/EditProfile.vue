@@ -47,6 +47,7 @@
 
 <script>
 import AUTH from "services/auth";
+// import $ from 'jquery'
 export default {
   data() {
     return {
@@ -63,7 +64,17 @@ export default {
         sessionStorage.setItem("Email", this.email),
         sessionStorage.setItem("Password", this.password),
         AUTH.save(this.username, this.email, this.password);
-      (this.username = ""), (this.email = ""), (this.password = "");
+      //   let link= `http://localhost:3000/db/update/${this.username}/${this.email}/${this.password}`
+      //   $.ajax({
+      //   url: link,
+      //   method: 'GET',
+      //   headers: {
+      //     'Access-Control-Allow-Origin':'*'
+      //   }
+      // }).then(response =>{
+      //   alert(response.username)
+      // })
+      // (this.username = ""), (this.email = ""), (this.password = "");
     }
   }
 };

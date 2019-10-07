@@ -53,7 +53,7 @@ export default {
                 this.registeredUser[i].email = email,
                 this.registeredUser[i].password = password
         }
-        alert('Update Succesfully!')
+        // alert('Update Succesfully!')
         // var p = JSON.parse(JSON.stringify(this.registeredUser))
         // console.log(p)
         ROUTER.push('/personalInformation')
